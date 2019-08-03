@@ -1,0 +1,48 @@
+# new sum
+Class Sum(target):
+  def twoSum(self,nums, target):
+      d={}
+#enumerate(sequence,[start=0]) 枚举
+      for i, num in enumerate(nums):
+          if target-num in d:
+             return i, d[target-num]
+          d[num]=i
+          
+////C++
+class Sum {
+public:
+  vector<int> twoSum(vector<int>& nums, int target){
+     vector<int> k;
+     for(int i=0; i<nums.size();i++)
+         { 
+            for(int j=i+1;j<nums.size();j++)
+            {
+              if (nums[i]==nums[j]==target)
+              {
+               k.push_back(i);
+               k.push_back(j);
+               return k;
+               }
+             }
+         }
+    }
+ }
+ //哈希算法
+ class Sum {
+  vector<int> twoSum(vector<int>& nums, int target){
+  // key is the number and value is its index in the vector(映射关系)
+     unordered_map<int,int> hash;
+     vector<int> result;
+     for(int i=0; i<nums.size();i++){
+        int NumberToFind=target-nums[i];
+        if(hash.find(NumberToFind)!=hash.end()){
+                result.push_back(hash[NumberToFind]+1);
+                result.push_back(i+1);
+                return result;
+         }
+         hash[numbers[i]]=i;
+            
+             }
+         }
+    }
+ }
